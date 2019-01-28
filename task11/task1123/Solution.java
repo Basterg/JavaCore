@@ -12,12 +12,22 @@ public class Solution {
 
     public static Pair<Integer, Integer> getMinimumAndMaximum(int[] inputArray) {
         if (inputArray == null || inputArray.length == 0) {
-            return new Pair<Integer, Integer>(null, null);
+            return new Pair<>(null, null);
         }
 
-        // напишите тут ваш код
+        int min = inputArray[0];
+        int max = min;
+        for (int i = 1; i < inputArray.length; i++) {
+            int currentElemnet = inputArray[i];
+            if (currentElemnet > max){
+                max = currentElemnet;
+            }
+            if (currentElemnet < min){
+                min = currentElemnet;
+            }
+        }
 
-        return new Pair<Integer, Integer>(0, 0);
+        return new Pair<Integer, Integer>(min, max);
     }
 
     public static class Pair<X, Y> {
