@@ -14,7 +14,10 @@ public class Solution {
     }
 
     public static void printObjectType(Object o) {
-        //Напишите тут ваше решение
+        System.out.println((o instanceof Cat ? "Кошка" : "")
+                + (o instanceof Dog ? "Собака" : "")
+                + (o instanceof Bird ? "Птица" : "")
+                + (o instanceof Lamp ? "Лампа" : ""));
     }
 
     public static class Cat {
