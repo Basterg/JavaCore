@@ -18,10 +18,17 @@ public class Solution {
         if (array == null || array.length == 0) {
             return new Pair<Integer, Integer>(null, null);
         }
+        int min = array[0];
+        int indexOfMin = 0;
+        for (int i = 1; i < array.length; i++) {
+            int cuurentElement = array[i];
+            if (cuurentElement < min) {
+                min = cuurentElement;
+                indexOfMin = i;
+            }
+        }
 
-        //напишите тут ваш код
-
-        return new Pair<Integer, Integer>(0, 0);
+        return new Pair<Integer, Integer>(min, indexOfMin);
     }
 
 
