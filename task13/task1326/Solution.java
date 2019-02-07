@@ -34,7 +34,7 @@ public class Solution {
 
     public static void sort(ArrayList<Integer> list) {
         for (int i = 0; i < list.size() - 1; i++) {
-            for (int j = i + 1; j < list.size() - i; j++) {
+            for (int j = 0; j < list.size() - i - 1; j++) {
                 int currentElement = list.get(j);
                 int nextElement = list.get(j + 1);
                 if (currentElement > nextElement) {
