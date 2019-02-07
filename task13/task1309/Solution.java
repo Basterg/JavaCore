@@ -10,10 +10,10 @@ public class Solution {
     }
 
     interface CanMove {
-        double speed();
+        Double speed();
     }
 
     interface CanFly extends CanMove {
-        double speed(CanFly fly);
+        Double speed(CanFly fly);
     }
 }
