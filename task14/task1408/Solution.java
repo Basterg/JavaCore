@@ -11,13 +11,19 @@ public class Solution {
     }
 
     static class HenFactory {
-
         static Hen getHen(String country) {
-            Hen hen = null;
-            //напишите тут ваш код
+            Hen hen;
+            if (country.equals(Country.RUSSIA)) {
+                hen = new RussianHen();
+            } else if (country.equals(Country.UKRAINE)) {
+                hen = new UkrainianHen();
+            } else if (country.equals(Country.MOLDOVA)) {
+                hen = new MoldovanHen();
+            } else {
+                hen = new BelarusianHen();
+            }
+
             return hen;
         }
     }
-
-
 }
