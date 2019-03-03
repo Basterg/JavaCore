@@ -15,7 +15,6 @@ public class Solution {
         labels.put(1.3, "lol3");
         labels.put(1.4, "lol4");
         labels.put(1.5, "lol5");
-
     }
 
     public static void main(String[] args) {

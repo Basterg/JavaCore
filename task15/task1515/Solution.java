@@ -9,7 +9,6 @@ import java.io.InputStreamReader;
 */
 
 public class Solution {
-
     static {
         BufferedReader reader =  new BufferedReader(new InputStreamReader(System.in));
         try {
@@ -21,6 +20,7 @@ public class Solution {
             e.printStackTrace();
         }
     }
+
     public static int A;
     public static int B;
 

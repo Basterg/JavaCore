@@ -20,8 +20,7 @@ public class Solution {
 
                 print(Double.parseDouble(s));
 
-            }
-            else if (checkString(s)) {
+            } else if (checkString(s)) {
                 int a = Integer.parseInt(s);
                 if (a > 0 && a < 128) {
                     print((short) a);
@@ -29,8 +28,7 @@ public class Solution {
                 if (a >= 128) {
                     print(a);
                 }
-            }
-            else {
+            } else {
                 print(s);
             }
         }
@@ -39,7 +37,8 @@ public class Solution {
     public static boolean checkString(String string) {
         try {
             Double.parseDouble(string);
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
             return false;
         }
         return true;

@@ -9,8 +9,8 @@ import java.io.Serializable;
 public class Solution {
     public static void main(String[] args) {
         JuniorJavaDev me = new JuniorJavaDev();
-        System.out.println(me.askHubert("What do " +
-                "you think about com.javarush.task.task15.task1511?"));
+        System.out.println(me.askHubert("What do "
+                + "you think about com.javarush.task.task15.task1511?"));
         System.out.println(me.askZapp("When will the next update happen?"));
     }
 
