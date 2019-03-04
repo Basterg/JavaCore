@@ -18,16 +18,16 @@ public class Solution {
 
     public static int calculateHorsesFinished(List<Horse> horses) throws InterruptedException {
         int countFinished = 0;
-        for (Horse oneOfThem: horses)
+        for (Horse someHorse : horses)
         {
-            if (oneOfThem.isFinished())
+            if (someHorse.isFinished())
             {
                 countFinished++;
             }
-            else if (oneOfThem.isFinished() != true)
+            else if (someHorse.isFinished() != true)
             {
-                System.out.println("Waiting for " + oneOfThem.getName());
-                oneOfThem.join();
+                System.out.println("Waiting for " + someHorse.getName());
+                someHorse.join();
             }
         }
         return countFinished;
