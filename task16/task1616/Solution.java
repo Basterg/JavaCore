@@ -28,7 +28,11 @@ public class Solution {
 
         public void run() {
             try {
-                //add your code here - добавьте код тут
+                Thread currentThread = Thread.currentThread();
+                while (!currentThread.isInterrupted()) {
+                    Thread.sleep(1000);
+                    seconds++;
+                }
             } catch (InterruptedException e) {
                 System.out.println(seconds);
             }
