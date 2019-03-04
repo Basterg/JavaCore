@@ -13,12 +13,13 @@ public class Solution {
     }
 
     public static void ourInterruptMethod() {
-
+        TestThread.isCancel = true;
     }
 
     public static class TestThread implements Runnable {
+        public static boolean isCancel;
         public void run() {
-            while (true) {
+            while (!isCancel) {
                 try {
                     System.out.println("he-he");
                     Thread.sleep(500);
