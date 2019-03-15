@@ -12,7 +12,7 @@ public class Solution {
     public static class OnlineGame extends Thread {
         public static volatile boolean isWinnerFound = false;
 
-        public static List<String> steps = new ArrayList<String>();
+        public static List<String> steps = new ArrayList<>();
 
         static {
             steps.add("Начало игры");
@@ -48,7 +48,16 @@ public class Solution {
 
         @Override
         public void run() {
-            //Add your code here - добавь код тут
+            try {
+                for (String step : OnlineGame.steps) {
+                    System.out.println(getName() + ": " +step);
+                    Thread.sleep(1000/ rating);
+                }
+                OnlineGame.isWinnerFound = true;
+                System.out.println(getName() + ": Победитель!");
+            } catch (InterruptedException e) {
+                System.out.println(getName() + ": Ппроиграл!");
+            }
         }
     }
 }
