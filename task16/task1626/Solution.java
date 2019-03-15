@@ -10,7 +10,6 @@ public class Solution {
 
     public static class CountUpRunnable implements Runnable {
         private int countIndexUp = 0;
-
         public void run() {
             try {
                 while (true) {
