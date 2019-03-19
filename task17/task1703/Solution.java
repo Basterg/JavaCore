@@ -29,8 +29,9 @@ public class Solution {
             System.out.println("Сейчас будет удалена заметка с позиции " + index);
             synchronized (notes) {
                 String note = notes.remove(index);
+
+                System.out.println("Уже удалена заметка [" + note + "] с позиции " + index);
             }
-            System.out.println("Уже удалена заметка [" + note + "] с позиции " + index);
         }
     }
 
