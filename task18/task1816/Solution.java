@@ -18,6 +18,7 @@ public class Solution {
                 count++;
             }
         }
+        fileInputStream.close();
         System.out.println(count);
     }
 }
