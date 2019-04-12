@@ -1,46 +1,43 @@
 package com.javarush.task.task18.task1825;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.*;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Set;
+import java.util.TreeSet;
 
 /* 
 Собираем файл
 */
 
-class Solution {
-
+public class Solution {
     public static void main(String[] args) throws IOException {
-
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        ArrayList<String> list = new ArrayList<>();
-        String fileName;
-
-        while (!(fileName = bufferedReader.readLine()).equals("end")) {
-            list.add(fileName);
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        TreeSet<String> fileNames = new TreeSet<>();
+        String currentPath = null;
+        String lastFileName = null;
+        while (true) {
+            String readedFileName = reader.readLine();
+            if (readedFileName.equals("end"))
+                break;
+            File tmp = new File(readedFileName);
+            fileNames.add(tmp.getName());
+            currentPath = tmp.getParent();
+            lastFileName = tmp.getName();
         }
+        reader.close();
 
-        bufferedReader.close();
-        Collections.sort(list);
-
-        String[] stringArray = list.get(0).split(".part");
-        String summaryFileName = stringArray[0];
-
-        FileInputStream fileInputStream;
-        FileOutputStream fileOutputStream = new FileOutputStream(summaryFileName, true);
-        byte[] buffer;
-
-        for (String aList : list) {
-            fileInputStream = new FileInputStream(aList);
-            buffer = new byte[fileInputStream.available()];
-            fileInputStream.read(buffer);
-            fileInputStream.close();
-            fileOutputStream.write(buffer);
+        String outputFileName = currentPath + "\\" + lastFileName.substring(0, lastFileName.indexOf(".part"));
+        FileOutputStream fileWrite = new FileOutputStream(outputFileName);
+        for (String fileName : fileNames) {
+            FileInputStream fileRead = new FileInputStream(currentPath + "\\" + fileName);
+            while (fileRead.available() > 0) {
+                byte[] buf = new byte[fileRead.available()];
+                fileRead.read(buf);
+                fileWrite.write(buf);
+            }
+            fileRead.close();
         }
-
-        fileOutputStream.close();
+        fileWrite.close();
     }
 }
